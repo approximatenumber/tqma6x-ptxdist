@@ -1,0 +1,74 @@
+From fd30be4541a7fe77bf5d0e8ca03b8cd8eafa9aa3 Mon Sep 17 00:00:00 2001
+From: Maksim Melnikov <approximatenumber@gmail.com>
+Date: Fri, 28 Feb 2020 11:38:38 +0300
+Subject: changed URL for some packages rules
+
+---
+ rules/fbgrab.make   | 4 +++-
+ rules/mii-diag.make | 4 +++-
+ rules/prelink.make  | 4 +++-
+ rules/qt5.make      | 3 ++-
+ 4 files changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/rules/fbgrab.make b/rules/fbgrab.make
+index eb8819c..2b50228 100644
+--- a/rules/fbgrab.make
++++ b/rules/fbgrab.make
+@@ -21,7 +21,9 @@ FBGRAB_VERSION	:= 1.0
+ FBGRAB_MD5	:= 7af4d8774684182ed690d5da82d6d234
+ FBGRAB		:= fbgrab-$(FBGRAB_VERSION)
+ FBGRAB_SUFFIX	:= tar.gz
+-FBGRAB_URL	:= http://fbgrab.monells.se/$(FBGRAB).$(FBGRAB_SUFFIX)
++FBGRAB_URL	:= \
++	http://fbgrab.monells.se/$(FBGRAB).$(FBGRAB_SUFFIX) \
++	http://gpl.matrix-vision.com/mvblx-sources/GPL/fbgrab/$(FBGRAB).$(FBGRAB_SUFFIX)
+ FBGRAB_SOURCE	:= $(SRCDIR)/$(FBGRAB).$(FBGRAB_SUFFIX)
+ FBGRAB_DIR	:= $(BUILDDIR)/$(FBGRAB)
+ 
+diff --git a/rules/mii-diag.make b/rules/mii-diag.make
+index c9f10ea..8336300 100644
+--- a/rules/mii-diag.make
++++ b/rules/mii-diag.make
+@@ -22,7 +22,9 @@ MII_DIAG_MD5		:= 2c0cc0cd29c80f86921e6f300709bf81
+ MII_DIAG_SUFFIX		:= tar.gz
+ MII_DIAG		:= mii-diag-$(MII_DIAG_VERSION).orig
+ MII_DIAG_TARBALL	:= mii-diag_$(MII_DIAG_VERSION).orig.$(MII_DIAG_SUFFIX)
+-MII_DIAG_URL		:= $(call ptx/mirror, DEB, pool/main/m/mii-diag/$(MII_DIAG_TARBALL))
++MII_DIAG_URL		:= \
++	$(call ptx/mirror, DEB, pool/main/m/mii-diag/$(MII_DIAG_TARBALL)) \
++	https://mirror.yandex.ru/ubuntu-ports/pool/main/m/mii-diag/$(MII_DIAG_TARBALL)
+ MII_DIAG_SOURCE		:= $(SRCDIR)/$(MII_DIAG_TARBALL)
+ MII_DIAG_DIR		:= $(BUILDDIR)/$(MII_DIAG)
+ MII_DIAG_LICENSE	:= GPL
+diff --git a/rules/prelink.make b/rules/prelink.make
+index a3a40b1..317708a 100644
+--- a/rules/prelink.make
++++ b/rules/prelink.make
+@@ -21,7 +21,9 @@ PRELINK_MD5	:= ed90412ad4ee7f5b5e8fff3d6649e49b
+ PRELINK_SUFFIX	:= orig.tar.gz
+ PRELINK		:= prelink-$(PRELINK_VERSION)
+ PRELINK_TARBALL	:= prelink_$(PRELINK_VERSION).$(PRELINK_SUFFIX)
+-PRELINK_URL	:= $(call ptx/mirror, DEB, pool/main/p/prelink/$(PRELINK_TARBALL))
++PRELINK_URL	:= \
++		$(call ptx/mirror, DEB, pool/main/p/prelink/$(PRELINK_TARBALL)) \
++		https://archive.debian.dists.mirror.naxonet.net/debian/pool/main/p/prelink/$(PRELINK_TARBALL)
+ PRELINK_SOURCE	:= $(SRCDIR)/$(PRELINK_TARBALL)
+ PRELINK_DIR	:= $(BUILDDIR)/$(PRELINK)
+ PRELINK_LICENSE	:= GPL-2.0-only
+diff --git a/rules/qt5.make b/rules/qt5.make
+index cf12e37..6e1240a 100644
+--- a/rules/qt5.make
++++ b/rules/qt5.make
+@@ -22,7 +22,8 @@ QT5		:= qt-everywhere-opensource-src-$(QT5_VERSION)
+ QT5_SUFFIX	:= tar.xz
+ QT5_URL		:= \
+ 	http://download.qt-project.org/official_releases/qt/$(basename $(QT5_VERSION))/$(QT5_VERSION)/single/$(QT5).$(QT5_SUFFIX) \
+-	http://download.qt-project.org/development_releases/qt/$(basename $(QT5_VERSION))/$(QT5_VERSION)/single/$(QT5).$(QT5_SUFFIX)
++	http://download.qt-project.org/development_releases/qt/$(basename $(QT5_VERSION))/$(QT5_VERSION)/single/$(QT5).$(QT5_SUFFIX) \
++	http://download.qt-project.org/archive/qt/$(basename $(QT5_VERSION))/$(QT5_VERSION)/single/$(QT5).$(QT5_SUFFIX)
+ QT5_SOURCE	:= $(SRCDIR)/$(QT5).$(QT5_SUFFIX)
+ QT5_DIR		:= $(BUILDDIR)/$(QT5)
+ QT5_BUILD_OOT	:= YES
+-- 
+2.20.1
+
