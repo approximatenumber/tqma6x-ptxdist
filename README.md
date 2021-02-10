@@ -1,5 +1,5 @@
 # PTXdist (2019.01.0) with compiled OSELAS toolchain (2018.02.0) based on Ubuntu 18 image.
-Used to build ptdxdist OS for embedded platforms.
+Used to build ptdxdist OS for embedded platforms (originally created to build TQMA6x BSP).
 
 ## How to start
 
