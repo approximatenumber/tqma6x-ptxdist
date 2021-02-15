@@ -14,7 +14,8 @@ docker build -t ptxdist2019 ./
 3. Configure ptxdist to use your BSP configuration inside docker this image:
 
 ```bash
-docker run -it --rm ptxdist2019 bash
+docker run -it -v ${PWD}:/bsp ptxdist2019 bash
+cd /bsp
 # set platform 
 ptxdist platform configs/platform..../platformconfig
 # select ptxconfig
